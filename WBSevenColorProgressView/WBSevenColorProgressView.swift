@@ -52,7 +52,16 @@ class WBSevenColorProgressView: UIView {
     
     internal func setProgress(progress:CGFloat)->Void{
         gress=progress
+        print(progress)
         maskLayer?.frame=CGRectMake(0, 0, gress!*width(), 2)
+        if progress>=1.0 {
+            stopLoop()
+            hidde()
+        }
+    }
+    
+    private func hidde()->Void{
+        self.removeFromSuperview()
     }
     
     private func created()->Void{
